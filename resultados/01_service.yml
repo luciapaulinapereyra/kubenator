@@ -1,0 +1,11 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: portfolio_lucia-srv
+spec:
+  selector:
+    app: portfolio_lucia
+  ports:
+    - port: 8080
+      targetPort: 8080
+  type: NodePort

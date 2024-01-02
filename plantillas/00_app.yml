@@ -1,0 +1,29 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: $NAME_APP
+  labels:
+    app: $NAME_APP
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: $NAME_APP
+  template:
+    metadata:
+      labels:
+        app: $NAME_APP
+    spec:
+      containers:
+        - name: $NAME_APP
+          image: $URL_IMAGE
+          ports:
+            - containerPort: $PORT_NUMBER
+          volumeMounts:
+          - name: tz-config
+            mountPath: /etc/localtime
+      volumes:
+        - name: tz-config
+          hostPath:
+            path: /usr/share/zoneinfo/America/Buenos_Aires
+            type: File

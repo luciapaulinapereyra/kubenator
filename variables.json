@@ -1,0 +1,7 @@
+ {
+    "NAME_APP": "portfolio_lucia",
+    "URL_IMAGE": "portfolio_lucia:latest",
+    "PORT_NUMBER": 8080,
+    "URL_APP": "www.luciapaulinapereyra.com",
+    "SECRET_NAME": "lucia_secret"
+}

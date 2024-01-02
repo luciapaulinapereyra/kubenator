@@ -1,0 +1,11 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: $NAME_APP-srv
+spec:
+  selector:
+    app: $NAME_APP
+  ports:
+    - port: $PORT_NUMBER
+      targetPort: $PORT_NUMBER
+  type: NodePort

@@ -1,0 +1,29 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: portfolio_lucia
+  labels:
+    app: portfolio_lucia
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: portfolio_lucia
+  template:
+    metadata:
+      labels:
+        app: portfolio_lucia
+    spec:
+      containers:
+        - name: portfolio_lucia
+          image: portfolio_lucia:latest
+          ports:
+            - containerPort: 8080
+          volumeMounts:
+          - name: tz-config
+            mountPath: /etc/localtime
+      volumes:
+        - name: tz-config
+          hostPath:
+            path: /usr/share/zoneinfo/America/Buenos_Aires
+            type: File
