@@ -11,16 +11,35 @@ The objective of this project is to provide a Python script that facilitates the
 
 * Result in a New File: The replacement result is saved in a new YAML file, preserving the original template and enabling the generation of multiple configurations with different sets of variables.
 
+## Requirements
+
+- Python 3
+- Flask
+
+1. Clone this repository:
+
+   ```bash
+   git clone https://github.com/luciapaulinapereyra/kubenator.git
+   cd kubenator
+2. Install dependencies
+   ```bash
+   pip install flask
+
 ## Usage
 
- 
- * Define Variables: Modify the variables dictionary in the script with the desired variable names and values for replacement.
+1. Run the Flask application:
+   ```bash
+   python3 script.py
+2. Open your browser and go to http://127.0.0.1:5000/.
+3. Fill out the form with the desired values and click "Run Script".
+4. Check the results.
 
-* Locate the Template: Place your YAML template in a separate file in the same directory as the script. Adjust the input_yaml_file_path variable with the correct path to the template file.
-
-* Specify Output File: Define the output_yaml_file_path variable with the path where you want to save the result.
-
-* Run the Script: Execute the script in Python. The result will be saved in the specified file, and a message will be displayed indicating the location of the new file.
+## Project Structure
+* `app.py`: Python code for the Flask application.
+* `templates/index.html`: HTML template containing the form and user interface.
+* `templates/`: Folder containing YAML template files.
+* `results/`:  Folder where YAML files with replaced variables will be saved.
+* `variables.json`: JSON file with default variables.
 
 ## Benefits
 
