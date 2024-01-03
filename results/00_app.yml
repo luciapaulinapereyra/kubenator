@@ -1,24 +1,24 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: portfolio_lucia
+  name: test
   labels:
-    app: portfolio_lucia
+    app: test
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: portfolio_lucia
+      app: test
   template:
     metadata:
       labels:
-        app: portfolio_lucia
+        app: test
     spec:
       containers:
-        - name: portfolio_lucia
-          image: portfolio_lucia:latest
+        - name: test
+          image: test
           ports:
-            - containerPort: 8080
+            - containerPort: 3233
           volumeMounts:
           - name: tz-config
             mountPath: /etc/localtime

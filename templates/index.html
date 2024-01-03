@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Replace Variables</title>
+</head>
+<body>
+    <h1>Replace Variables</h1>
+
+    <form id="variablesForm" method="post" action="/">
+        <label for="nameApp">NOMBRE DE LA APP:</label>
+        <input type="text" id="nameApp" placeholder="Nombre de la App" required>
+        <br>
+
+        <label for="urlImage">URL IMAGEN:</label>
+        <input type="text" id="urlImage" placeholder="URL de la Imagen" required>
+        <br>
+
+        <label for="portNumber">NUMERO DE PUERTO:</label>
+        <input type="number" id="portNumber" placeholder="Número de Puerto" required>
+        <br>
+
+        <label for="urlApp">URL APP:</label>
+        <input type="text" id="urlApp" placeholder="URL de la App" required>
+        <br>
+
+        <label for="secretName">SECRET:</label>
+        <input type="text" id="secretName" placeholder="Nombre del Secret" required>
+        <br>
+        <input type="hidden" id="variables" name="variables">
+
+        <button type="button" onclick="generateJsonAndSubmit()">Ejecutar Script</button>
+    </form>
+
+    <script>
+        function generateJsonAndSubmit() {
+            const variables = {
+                "NAME_APP": document.getElementById("nameApp").value,
+                "URL_IMAGE": document.getElementById("urlImage").value,
+                "PORT_NUMBER": parseInt(document.getElementById("portNumber").value),
+                "URL_APP": document.getElementById("urlApp").value,
+                "SECRET_NAME": document.getElementById("secretName").value
+            };
+
+            const jsonString = JSON.stringify(variables);
+            document.getElementById("variables").value = jsonString;
+            document.getElementById("variablesForm").submit();
+        }
+    </script>
+
+{% if results %}
+<h2>Resultados:</h2>
+<ul>
+    {% for result in results %}
+        <li>{{ result }}</li>
+    {% endfor %}
+</ul>
+{% endif %}
+</body>
+</html>
