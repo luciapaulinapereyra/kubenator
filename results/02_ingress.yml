@@ -1,7 +1,7 @@
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
-  name: test-ingress
+  name: portfolio-lucia-ingress
   annotations:
     kubernetes.io/ingress.class: "nginx"
     nginx.ingress.kubernetes.io/ssl-redirect: "true"
@@ -11,20 +11,20 @@ metadata:
     nginx.org/client-max-body-size: "5024m"
     nginx.ingress.kubernetes.io/proxy-body-size: "5024m"
   labels:
-    app: test
+    app: portfolio-lucia
 spec:
   tls:
     - hosts:
-        - test
-      secretName: test
+        - www.luciapaulinapereyra.com
+      secretName: lucia-secret
   rules:
-    - host: test
+    - host: www.luciapaulinapereyra.com
       http:
         paths:
           - path: /
             pathType: Prefix
             backend:
               service:
-                name: test-srv
+                name: portfolio-lucia-srv
                 port:
-                  number: 3233
+                  number: 8080
